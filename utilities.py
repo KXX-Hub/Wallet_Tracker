@@ -43,7 +43,6 @@ def read_config():
             data = yaml.load(f, Loader=SafeLoader)
             config = {
                 'ether_api_key': data['ether_api_key'],
-                'target_gas': data['target_gas'],
                 'wallet_address': data['wallet_address'],
                 'line_notify_token': data['line_notify_token']
             }
