@@ -1,5 +1,4 @@
 import requests
-
 import utilities as utils
 
 config = utils.read_config()

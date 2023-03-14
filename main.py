@@ -11,6 +11,10 @@ counter = {
     'balance': 0,
     'transaction': 0
 }
+common_contract = {
+    '0x000000000000ad05ccc4f10045630fb830b95127': 'Blur.Marketplace',
+    '0x0000000000A39bb272e79075ade125fd351887Ac': 'Blur.Bidding',
+}
 
 
 def get_wallet_balance():
@@ -46,7 +50,22 @@ def get_the_latest_transaction():
     to_address = latest_tx["to"]
     value_in_wei = int(latest_tx["value"])
     timestamp = int(latest_tx["timeStamp"])
-
+    if from_address.lower() == address.lower():
+        from_address = 'You'
+    else:
+        pass
+    if to_address.lower() == address.lower():
+        to_address = 'You'
+    else:
+        pass
+    if from_address in common_contract:
+        from_address = common_contract[from_address]
+    else:
+        pass
+    if to_address in common_contract:
+        to_address = common_contract[to_address]
+    else:
+        pass
     # Convert the gas price from Gwei to Wei
     gas_price_in_wei = gas_price_in_gwei * 10 ** 9
 
@@ -91,7 +110,14 @@ def track_newest_transaction():
             from_address = latest_tx["from"]
             to_address = latest_tx["to"]
             value_in_wei = int(latest_tx["value"])
-
+            if from_address.lower() in common_contract:
+                from_address = common_contract[from_address]
+            else:
+                pass
+            if to_address.lower() in common_contract:
+                to_address = common_contract[to_address]
+            else:
+                pass
             # Convert the gas price from Gwei to Wei
             gas_price_in_wei = gas_price_in_gwei * 10 ** 9
 
