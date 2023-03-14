@@ -1,8 +1,10 @@
 import time
+from datetime import datetime
+
 import requests
+
 import line_notify
 import utilities as utils
-from datetime import datetime
 
 config = utils.read_config()
 address = config.get('wallet_address')
@@ -66,15 +68,21 @@ def get_the_latest_transaction():
         to_address = common_contract[to_address]
     else:
         pass
+
     # Convert the gas price from Gwei to Wei
     gas_price_in_wei = gas_price_in_gwei * 10 ** 9
-
-    # Convert the timestamp to a human-readable date string
-    date = datetime.utcfromtimestamp(timestamp).strftime('%Y-%m-%d %H:%M:%S')
-
-    # Convert the values from Wei to Ether
     gas_price_in_ether = gas_price_in_wei / 10 ** 18
     value_in_ether = value_in_wei / 10 ** 18
+
+    # Convert the timestamp to a datetime object using datetime module
+    dt_object = datetime.fromtimestamp(timestamp)
+    # Calculate the time difference from current time
+    time_difference = datetime.now() - dt_object
+    # Convert the time difference to days, hours and minutes
+    days, seconds = time_difference.days, time_difference.seconds
+    hours = seconds // 3600
+    minutes = (seconds % 3600) // 60
+    time_past = f"{hours}hr{minutes}min ago"
 
     # Print the details of the latest transaction
     print(f"The Most Recent Transaction :")
@@ -83,7 +91,7 @@ def get_the_latest_transaction():
     print(f"From address: {from_address}")
     print(f"To address: {to_address}")
     print(f"Value: {value_in_ether} Ether")
-    print(f"Date: {date}")
+    print(f"Time: {time_past}")
     print("----------------------------------------------------------")
     message = "\nThe Most Recent Transaction :" \
               "\n" \
@@ -91,7 +99,7 @@ def get_the_latest_transaction():
               f"\nFrom address: {from_address}" \
               f"\nTo address: {to_address}" \
               f"\nValue: {value_in_ether} Ether" \
-              f"\nDate: {date}"
+              f"\nTime: {time_past}"
     line_notify.send_message(message)
 
 
@@ -118,23 +126,32 @@ def track_newest_transaction():
                 to_address = common_contract[to_address]
             else:
                 pass
+
+            # Convert the timestamp to a datetime object using datetime module
+            dt_object = datetime.fromtimestamp(timestamp)
+            # Calculate the time difference from current time
+            time_difference = datetime.now() - dt_object
+            # Convert the time difference to days, hours and minutes
+            days, seconds = time_difference.days, time_difference.seconds
+            hours = seconds // 3600
+            minutes = (seconds % 3600) // 60
+            time_past = f"{hours}hr{minutes}min ago"
+
             # Convert the gas price from Gwei to Wei
             gas_price_in_wei = gas_price_in_gwei * 10 ** 9
-
-            # Convert the timestamp to a human-readable date string
-            date = datetime.utcfromtimestamp(timestamp).strftime('%Y-%m-%d %H:%M:%S')
 
             # Convert the values from Wei to Ether
             gas_price_in_ether = gas_price_in_wei / 10 ** 18
             value_in_ether = value_in_wei / 10 ** 18
             transaction_fee_in_ether = gas_price_in_ether * gas_used
+
             print("--------------------------------------------------------"
                   "New transaction"
                   f"From address: {from_address}\n"
                   f"To address: {to_address}\n"
                   f"Transaction fee: {transaction_fee_in_ether} Ether\n"
                   f"Value: {value_in_ether} Ether\n"
-                  f"Date: {date}"
+                  f"Date: {time_past}"
                   "---------------------------------------------------------")
 
             message = "\nNew transaction!"
@@ -143,7 +160,7 @@ def track_newest_transaction():
             message += f"To address: {to_address}\n"
             message += f"Transaction fee: {transaction_fee_in_ether} Ether\n"
             message += f"Value: {value_in_ether} Ether\n"
-            message += f"Date: {date}"
+            message += f"Time: {time_past}"
             line_notify.send_message(message)
             get_wallet_balance()
             continue
