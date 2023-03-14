@@ -1,7 +1,5 @@
 import time
-
 import requests
-import web3
 import line_notify
 import utilities as utils
 from datetime import datetime
@@ -62,7 +60,7 @@ def get_the_latest_transaction():
     # Print the details of the latest transaction
     print(f"The Most Recent Transaction :")
     print("")
-    print(f"Gas price: {gas_price_in_ether} Ether")
+    print(f"Gas price: {gas_price_in_ether} Gwei")
     print(f"From address: {from_address}")
     print(f"To address: {to_address}")
     print(f"Value: {value_in_ether} Ether")
@@ -72,7 +70,7 @@ def get_the_latest_transaction():
               "\n" \
               f"\nGas price: {gas_price_in_ether} Gwei" \
               f"\nFrom address: {from_address}" \
-              f"\nTo address: {to_address}"\
+              f"\nTo address: {to_address}" \
               f"\nValue: {value_in_ether} Ether" \
               f"\nDate: {date}"
     line_notify.send_message(message)
