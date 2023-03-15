@@ -143,8 +143,7 @@ def track_newest_transaction():
             value_in_ether = value_in_wei / 10 ** 18
             transaction_fee_in_ether = gas_price_in_ether * gas_used
 
-            print("--------------------------------------------------------"
-                  "New transaction"
+            print("\nNew transaction\n"
                   f"From address: {from_address}\n"
                   f"To address: {to_address}\n"
                   f"Transaction fee: {transaction_fee_in_ether} Ether\n"
