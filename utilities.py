@@ -1,4 +1,5 @@
 """This python will handle some extra functions."""
+from datetime import datetime
 import sys
 from os.path import exists
 
@@ -53,3 +54,41 @@ def read_config():
             "If the problem can't be solved, consider delete config.yml and restart the program.\n")
         sys.exit()
 
+
+def convert_timestamp(timestamp):
+    """Convert timestamp to time.
+    :param int timestamp: Timestamp to convert.
+    :rtype: str
+    """
+    import time
+    time_local = time.localtime(timestamp)
+    time = time.strftime("%Y-%m-%d %H:%M:%S", time_local)
+    return time
+
+
+def convert_timestamp_to_past_time(timestamp):
+    """Convert timestamp to time.
+    :param int timestamp: Timestamp to convert.
+    :rtype: str
+    """
+    dt_object = datetime.fromtimestamp(timestamp)
+    # Calculate the time difference from current time
+    time_difference = datetime.now() - dt_object
+    # Convert the time difference to days, hours and minutes
+    days, seconds = time_difference.days, time_difference.seconds
+    hours = seconds // 3600
+    minutes = (seconds % 3600) // 60
+    time_past = f"{hours}hr{minutes}min ago"
+    return time_past
+
+
+def convert_gas_price(gas_price_in_wei):
+    # Convert gas price from wei to Gwei
+    gas_price_in_gwei = round(gas_price_in_wei / 1000000000)
+    # Return gas price in Gwei
+    return gas_price_in_gwei
+
+
+def convert_value_to_ether(value_in_wei):
+    value_in_ether = value_in_wei / 10 ** 18
+    return value_in_ether
