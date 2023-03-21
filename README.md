@@ -1,6 +1,6 @@
 # Wallet Tracker（以太坊錢包追蹤）
 
- 本專案使用*Etherscan API + Line Notify API*進行以太坊錢包追蹤，使用者填入自己的錢包地址，若交易產生就會收到通知
+ ### 本專案使用*Etherscan API + Line Notify API*進行以太坊錢包追蹤，填入自己的錢包地址，若交易產生就會收到Line通知
  <br>
  <img width="521" alt="截圖 2023-03-21 下午8 54 04" src="https://user-images.githubusercontent.com/72089746/226612584-ea967b6a-8990-484c-b134-3590d452e14e.png">
 <img width="521" alt="截圖 2023-03-21 下午8 53 55" src="https://user-images.githubusercontent.com/72089746/226612613-cb6859a8-70a7-49af-b747-a1fd43b12acc.png">
