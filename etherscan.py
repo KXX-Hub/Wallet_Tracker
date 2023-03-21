@@ -1,6 +1,7 @@
 import time
-from datetime import datetime
+
 import requests
+
 import line_notify
 import utilities as utils
 
