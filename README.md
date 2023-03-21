@@ -37,7 +37,7 @@
 
 
 # 如何使用
-  1.下載[Release](https://github.com/KXX-Hub/Line_Gas_Notify/releases/tag/crypto_tools)
+  1.下載[Release](https://github.com/KXX-Hub/Wallet_Tracker/releases/tag/crypto_tools)
   
   2.Run app.py ，系統會自動幫你產生config.yml
   
