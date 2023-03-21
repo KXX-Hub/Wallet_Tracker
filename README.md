@@ -1,6 +1,7 @@
 # Wallet Tracker（以太坊錢包追蹤）
 
  本專案使用*Etherscan API + Line Notify API*進行以太坊錢包追蹤，使用者填入自己的錢包地址，若交易產生就會收到通知
+ <br>
  <img width="521" alt="截圖 2023-03-21 下午8 54 04" src="https://user-images.githubusercontent.com/72089746/226612584-ea967b6a-8990-484c-b134-3590d452e14e.png">
 <img width="521" alt="截圖 2023-03-21 下午8 53 55" src="https://user-images.githubusercontent.com/72089746/226612613-cb6859a8-70a7-49af-b747-a1fd43b12acc.png">
 
@@ -38,7 +39,7 @@
 # 如何使用
   1.下載[Release](https://github.com/KXX-Hub/Line_Gas_Notify/releases/tag/crypto_tools)
   
-  2.Run main.py ，系統會自動幫你產生config.yml
+  2.Run app.py ，系統會自動幫你產生config.yml
   
   3.將**Etherscan Api Key** 、 **Line Notify token** 及 **錢包地址 **填入c**onfig.yml**
   (建議下載[notepad++](https://notepad-plus-plus.org/downloads/)或是[VisualStudioCode](https://code.visualstudio.com/download)，沒有的話用記事本也可以)
