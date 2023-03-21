@@ -6,14 +6,14 @@
 
  如需正常使用Wallet Tracker，你需要有以下資料：
 
-- [Etherscan API Key](https://docs.etherscan.io/getting-started/viewing-api-usage-statistics)
+- ### [Etherscan API Key](https://docs.etherscan.io/getting-started/viewing-api-usage-statistics)
 
   1. 到[Etherscan API 網站](https://docs.etherscan.io/getting-started/viewing-api-usage-statistics)申請帳號
 
   2. 點選個人資料**Etherscan API key**，複製API key
    <img width="705" alt="截圖 2023-03-20 下午8 45 35" src="https://user-images.githubusercontent.com/72089746/226342843-444395fe-2dd7-48c8-8c38-29e6327b2932.png">
 
-- [Line Notify Token](https://notify-bot.line.me/zh_TW/)
+- ### [Line Notify Token](https://notify-bot.line.me/zh_TW/)
 
   1.登入[Line Notify](https://notify-bot.line.me/zh_TW/)
   2.點選你連動的服務
@@ -30,7 +30,7 @@
   
   6.複製權杖(Token)**注意！要立刻馬上複製，權杖只會顯示一次**
 
-- 以太錢包地址
+- ### 以太錢包地址
 
   1. 可以去[Metamaske官網](https://metamask.io/)註冊並使用google擴充，註冊後即可使用**注意！錢包註記詞請不要洩漏，妥善保管**
 
